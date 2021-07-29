@@ -1,0 +1,41 @@
+<main class="main">
+
+    <div *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 25, currentPage: actualPage,  totalItems: numTotalPokemons}">
+        <div *ngIf="pokemon != undefined" (click)="openInfoDialog(pokemon)">
+
+            <mat-card class="card">
+
+                <mat-card-header class="card__header type--{{pokemon.types[0].type.name}}">
+                    <mat-card-title class="card__header--title">
+                        {{pokemon.name | titlecase | noscript}}
+                    </mat-card-title>
+                </mat-card-header>
+
+                <mat-card-subtitle class="card__subname">
+                    <div class="card__subname--id">
+                        <b>N.°{{pokemon.id}}</b>
+                    </div>
+                    <div class="card__subname--types">
+                        <b *ngFor="let types of pokemon.types">
+                            {{types.type.name | titlecase}}
+                        </b>
+                    </div>
+                </mat-card-subtitle>
+
+                <img mat-card-image class="card--img" src={{pokemon.sprites.front_default}}>
+
+            </mat-card>
+
+        </div>
+    </div>
+
+</main>
+
+
+<mat-paginator 
+            [length]="length"
+            [pageSize]="pageSize"
+            [pageSizeOptions]="pageSizeOptions"
+            (page)="pageEvent = $event">
+></mat-paginator>
+<!-- <pagination-controls class="pagination" (pageChange)="actualPage = $event; updatePokemon($event)"></pagination-controls> -->

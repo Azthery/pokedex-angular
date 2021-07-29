@@ -1,0 +1,73 @@
+@mixin subname {
+    display: flex;
+    margin: 0px;
+    b{
+        margin: 5px;
+    }
+}
+
+.dialog--img{
+    width: 150px;
+}
+
+.dialog__subname{
+    @include subname();
+    justify-content: space-between;
+}
+
+.dialog__subname--id{
+    @include subname();
+}
+
+.dialog__subname--types{
+    @include subname();
+}
+
+.dialog__content{
+    display: flex;
+    flex-direction: row;
+}
+.dialog__content__left{
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    img{
+        margin: 0px;
+    }
+    div{
+        display: flex;
+        justify-content: center;
+        position: relative;
+        bottom: 10px;
+        p{
+            padding: 0px 4px;
+            margin: 0px;
+        }
+    }
+}
+.dialog__content__right{
+    display: flex;
+    align-items: center;
+    width: 150px;
+    padding-left: 15px;
+    ul{
+        list-style-type: none;
+        padding-left: 0px;
+        li{
+            display: flex;
+            justify-content: space-between;
+            padding: 1px 0px;
+            border-bottom: 1px solid rgba(73, 73, 73, 0.616);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            width: 100%;
+            p{
+                height: 0px;
+            }
+            .dialog__content__right--stat_name{
+                padding-right: 15px;
+            }
+        }
+    }
+}
